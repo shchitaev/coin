@@ -21,7 +21,7 @@ body {
        }
 #coin {
     font-family: Comic Sans MS’, cursive;
-    font-size: 7em;
+    font-size: 6em;
     }
 #coin:hover {cursor: default;}
 </style>
@@ -31,8 +31,8 @@ function rndcoin() {
   document.getElementById('coin').innerHTML = rnd;
   document.querySelector("title").innerHTML = "&#129689; " + rnd;
   console.log(rnd);
-  document.getElementById('coin').style.color = 'red';
-  setTimeout(() => { document.getElementById('coin').style.color = 'black'; }, 200);
+  document.getElementById('coin').style.color = 'transparent';
+  setTimeout(() => { document.getElementById('coin').style.color = 'black'; }, 250);
 };
 window.onload = () => rndcoin();
 document.addEventListener("mouseup", (event) => rndcoin());
