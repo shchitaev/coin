@@ -34,7 +34,7 @@ function rndcoin() {
   document.getElementById('coin').style.color = 'transparent';
   setTimeout(() => { document.getElementById('coin').style.color = 'black'; }, 250);
 };
-window.onload = () => rndcoin();
+window.onload = () => {document.getElementById('coin').style.color = '#007aff'; document.getElementById('coin').innerHTML = "Клац!";}
 document.addEventListener("mouseup", (event) => rndcoin());
 document.addEventListener('keydown', function(event) {
   if (event.code == 'Space' || event.code == 'Enter') {
@@ -43,6 +43,6 @@ document.addEventListener('keydown', function(event) {
 });
 </script>
 <body>
-     <p type="text" id="coin" onclick= "rndcoin();" value=""/>
+     <p type="text" id="coin" onclick= "rndcoin();" title="Игра орёл и решка. Нажмите." value=""/>
 </body>
 </html>
