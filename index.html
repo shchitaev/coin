@@ -1,48 +1,50 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" content="no-cache">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>&#129689; coin</title>
+    <title>🪙 coin</title>
+    <style>
+        html {
+            user-select: none;
+        }
+        body {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #coin {
+            font-family: 'Comic Sans MS', cursive;
+            font-size: 6em;
+        }
+        #coin:hover {
+            cursor: default;
+        }
+    </style>
+    <script>
+        function rndcoin() {
+            let rnd = Math.floor(Math.random() * 2) === 1 ? "Орёл" : "Решка";
+            document.getElementById('coin').innerHTML = rnd;
+            document.querySelector("title").innerHTML = "🪙 " + rnd;
+            console.log(rnd);
+            document.getElementById('coin').style.color = 'transparent';
+            setTimeout(() => { document.getElementById('coin').style.color = 'black'; }, 250);
+        }
+        window.onload = () => {
+            document.getElementById('coin').style.color = '#007aff';
+            document.getElementById('coin').innerHTML = "Клац!";
+        };
+        document.addEventListener("mouseup", (event) => rndcoin());
+        document.addEventListener('keydown', function(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                rndcoin();
+            }
+        });
+    </script>
 </head>
-<style>
-html {
-     -ms-user-select: none;
-     -moz-user-select: none;
-     -khtml-user-select: none;
-     -webkit-user-select: none;
-     }
-body {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-       }
-#coin {
-    font-family: Comic Sans MS’, cursive;
-    font-size: 6em;
-    }
-#coin:hover {cursor: default;}
-</style>
-<script>
-function rndcoin() {
-  let rnd = Math.floor(Math.random() * 2) === 1 ? "Орёл" : "Решка";
-  document.getElementById('coin').innerHTML = rnd;
-  document.querySelector("title").innerHTML = "&#129689; " + rnd;
-  console.log(rnd);
-  document.getElementById('coin').style.color = 'transparent';
-  setTimeout(() => { document.getElementById('coin').style.color = 'black'; }, 250);
-};
-window.onload = () => {document.getElementById('coin').style.color = '#007aff'; document.getElementById('coin').innerHTML = "Клац!";}
-document.addEventListener("mouseup", (event) => rndcoin());
-document.addEventListener('keydown', function(event) {
-  if (event.code == 'Space' || event.code == 'Enter') {
-    rndcoin();
-  }
-});
-</script>
 <body>
-     <p type="text" id="coin" onclick= "rndcoin();" title="Игра орёл и решка. Нажмите." value=""/>
+    <p id="coin" onclick="rndcoin();" title="Игра орёл и решка. Нажмите."></p>
 </body>
 </html>
